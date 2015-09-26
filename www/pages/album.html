@@ -1,0 +1,84 @@
+<ion-view style="" title="Album">
+    <ion-content class="has-header" padding="true">
+      <div>
+          <form name="albumForm" style="">
+            <label ng-class="{ 'has-errors' : albumForm.titre.$invalid && !albumForm.titre.$pristine , 'no-errors' : albumForm.titre.$valid }" ng-messages-include="error-list.html" style="" name="titre" class="item item-input">
+                <span class="input-label">titre</span>
+                <input placeholder="Titre" name="titre" type="text" ng-model="album.nom" required>
+            </label>
+            <div class="error-container" ng-show="albumForm.titre.$error" ng-messages="albumForm.titre.$error" ng-messages-include="error-list.html">
+            </div>
+            <label ng-class="{ 'has-errors' : albumForm.numero.$invalid && !albumForm.numero.$pristine , 'no-errors' : albumForm.numero.$valid }" ng-messages-include="error-list.html" style="" name="numero" class="item item-input">
+                <span class="input-label">numero</span>
+                <input placeholder="Numéro" name="numero" type="text" value="1" ng-model="album.numero" required>
+            </label>
+            <div class="error-container" ng-show="albumForm.numero.$error" ng-messages="albumForm.numero.$error" ng-messages-include="error-list.html">
+            </div>
+            <label style="" name="pages" class="item item-input">
+                <span class="input-label">Pages</span>
+                <input placeholder="pages" type="number" value="1" min="1" step="1" ng-model="album.nbrePages">
+            </label>
+            <label style="" name="dessinateur" class="item item-input">
+                <span class="input-label">Dessinateur</span>
+                <input placeholder="Dessinateur" type="text" ng-model="album.dessinateur">
+            </label>
+            <label style="" name="Scenariste" class="item item-input">
+                <span class="input-label">Scenariste</span>
+                <input placeholder="Scénariste" type="text" ng-model="album.scenariste">
+            </label>
+            <label style="" name="ISBN" class="item item-input">
+                <span class="input-label">Numéro ISBN</span>
+                <input placeholder="Numéro ISBN" type="text" ng-model="album.ISBN">
+            </label>
+            <label style="" name="editeur" class="item item-select">
+                <span class="input-label">Editeur</span>
+                <select ng-options="item.editeur.nom as item.editeur.nom for item in editeurList" name="editeur" ng-model="album.editeur"></select>
+            </label>
+            <label style="" name="estimation" class="item item-input">
+                <span class="input-label">Estimation</span>
+                <input placeholder="Estimation de prix" type="number" min="0" ng-model="album.estimation">
+            </label>
+            <label style="" name="prixAchat" class="item item-input">
+                <span class="input-label">Prix d'achat</span>
+                <input placeholder="Prix d'achat" type="number" min="0" ng-model="album.prixAchat">
+            </label>
+            <label style="" name="dateAchat" class="item item-input">
+                <span class="input-label">Date d'achat</span>
+                <input placeholder="Date d'achat" type="date" ng-model="album.dateAchat">
+            </label>
+            <label style="" name="dateParution" class="item item-input">
+                <span class="input-label">Date de parution</span>
+                <input placeholder="Date de parution" type="text" ng-model="album.dateParution">
+            </label>
+            <label style="" name="pret" class="item item-input">
+                <span class="input-label">Preté à</span>
+                <input placeholder="Prêté à" type="text" ng-model="album.pret">
+            </label>
+            <label style="" name="commentaire" class="item item-input">
+                <span class="input-label">Commentaire</span>
+                <input placeholder="Commentaire" type="text" ng-model="album.commentaire">
+            </label>
+            <label style="" name="manquant" class="item item-input-wrapper">
+                <span class="input-label">Manquant</span>
+                <input placeholder="Manquant" type="checkbox" ng-model="album.manquant" ng-init="album.manquant=false">
+            </label>
+            <label style="" name="serie" class="item item-select">
+                <span class="input-label">Série</span>
+                <select ng-options="item._id as item.serie.nom for item in serieList" name="serie" ng-model="album.serieId"></select>
+            </label>
+            <!-- Buttons to add or change the whole serie entity -->
+    				<ion-button ng-disabled="albumForm.$invalid" ng-if="!albumNr" class="button button-block button-positive" ng-click="addAlbum()">
+    							Ajouter
+    				</ion-button>
+            <ion-button ng-if="albumNr" class="button button-block button-positive" ng-click="updateAlbum()">
+    							Changer
+    				</ion-button>
+            <ion-button ng-if="albumNr" class="button button-block button-positive" ng-click="deleteAlbum()">
+    							Effacer
+    				</ion-button>
+            <input type="hidden" name="oldAlbumNr" ng-model="_oldAlbNr" />
+          </form>
+
+      </div>
+    </ion-content>
+</ion-view>
