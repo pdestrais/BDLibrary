@@ -1,0 +1,25 @@
+  <div class="modal">
+	  <ion-header-bar class="bar-dark">
+	  <ion-button class="button icon-left ion-chevron-left button-clear" ng-click="leaveAddChangeDialog()">Cancel</ion-button>
+		<h1 class="title">Ajouter une série</h1>
+	</ion-header-bar>
+    <ion-content has-header="false">
+		<form name="form" ng-model="form">
+      <label style="" name="nom" class="item item-input">
+          <span class="input-label">nom</span>
+          <input type="text" placeholder="nom de la série" name="nom" ng-model="nom" required />
+      </label>
+      <label style="" name="genre" class="item item-input">
+          <span class="input-label">genre</span>
+          <select ng-options="item for item in genreList" name="genre" ng-model="genre"></select>
+      </label>
+ 				<input type="hidden" name="id" ng-model="id" />
+				<ion-button ng-show="action == 'add'" ng-init="saveEmpty(form)" class="button button-block button-positive" ng-click="addItem(form)">
+		  				Ajouter
+				</ion-button>
+				<ion-button ng-show="action == 'change'" class="button button-block button-positive" ng-click="editItem(form)">
+		  				Changer
+				</ion-button>
+		</form>
+    </ion-content>
+  </div>

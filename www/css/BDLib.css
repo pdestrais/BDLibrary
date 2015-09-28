@@ -1,0 +1,141 @@
+.error-container {
+  margin: 5px 0;
+}
+
+.error-container:last-child {
+    margin: 5px 0 0;
+}
+
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+
+.error i {
+  font-size: 24px;
+  color: #B83E2C;
+  vertical-align: middle;
+}
+
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+
+.has-errors {
+  border-bottom: 3px solid red;
+}
+
+.no-errors {
+  border-bottom: 3px solid green;
+}
+
+.item-input-error {
+  border-color: red;
+}
+
+.manquant {
+  color: red;
+}
+
+#custom-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #cccccc;
+}
+
+#custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+  height: auto;
+  -webkit-animation: fadeIn 5.25s linear infinite;
+    -moz-animation: fadeIn 5.25s linear infinite;
+     -ms-animation: fadeIn 5.25s linear infinite;
+      -o-animation: fadeIn 5.25s linear infinite;
+//         animation: rotating-function 5.25s linear infinite;
+}
+
+.custom-overlay  {
+
+}
+
+@-webkit-keyframes rotating-function {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotating-function {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes rotating-function {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes rotating-function {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating-function {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

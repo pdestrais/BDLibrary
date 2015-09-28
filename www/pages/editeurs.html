@@ -1,0 +1,17 @@
+<ion-view style="" title="Liste d'éditeurs">
+	<ion-content>
+		<button class="button button-full button-dark icon-left ion-ios-plus-outline" on-tap="showAddChangeDialog('add')">Liste</button>
+		<ion-list can-swipe="true">
+  			<ion-item ng-if="list.length == 0">
+				Appuyez sur <i class="icon ion-ios-plus-outline"></i> pour ajouter un élément à la liste
+			</ion-item>
+			<!--  -->
+			<ion-item ng-repeat="item in list track by item.editeur.nom" item="item" item-type="item item-icon-left">
+	  					{{ item.editeur.nom }}
+			    <ion-option-button class="button-assertive" on-tap="removeItem(item)">Effacer</ion-option-button>
+			    <ion-option-button class="button-calm" on-tap="showEditItem(item)">Editer</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
+
